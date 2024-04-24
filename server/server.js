@@ -71,7 +71,7 @@ app.delete('/books/:id',async(req,res)=>{
         const id = req.params.id;
         const bookDeleted = await bookModel.findByIdAndDelete(id);
         if(!bookDeleted) return res.status(404).send("Book Not Found");
-        return res.status(201).json("Book Deleted");
+        return res.status(201).json("Book Deleted!");
     }
     catch(err){
         return res.status(500).json(err);
