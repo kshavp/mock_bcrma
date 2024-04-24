@@ -69,7 +69,7 @@ app.put('/books/:id',async(req,res)=>{
 app.delete('/books/:id',async(req,res)=>{
     try{
         const id = req.params.id;
-        const bookDeleted = bookModel.findByIdAndDelete(id);
+        const bookDeleted = await bookModel.findByIdAndDelete(id);
         if(!bookDeleted) return res.status(404).send("Book Not Found");
         return res.status(201).json("Book Deleted");
     }
